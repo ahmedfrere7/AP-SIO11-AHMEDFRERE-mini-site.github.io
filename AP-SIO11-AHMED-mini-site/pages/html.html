@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/Global.css" />
+    <title>COURS SIO WEB | HTML</title>
+  </head>
+  <body>
+    <!-- En-tête de la page -->
+    <header>
+      <nav aria-label="Navigation principale">
+        <div class="logo">Logo</div>
+        <div class="menu" id="menu">
+          <ul>
+            <li><a href="../index.html">Accueil</a></li>
+            <li><a href="html.html" aria-current="page">HTML</a></li>
+            <li><a href="css.html">CSS</a></li>
+            <li><a href="en_construction.html">JavaScript</a></li>
+            <li><a href="en_construction.html">PHP</a></li>
+            <li><a href="en_construction.html">Kotlin</a></li>
+            <li><a href="en_construction.html">Python</a></li>
+            <li><a href="en_construction.html">SQL</a></li>
+            <li><a href="en_construction.html">Angular</a></li>
+            <li><a href="en_construction.html">Git</a></li>
+            <li><a href="en_construction.html">GitHub</a></li>
+            <li><a href="en_construction.html">Linux</a></li>
+            <li><a href="linux_command_line.html">Ligne de commande Linux</a></li>
+          </ul>
+        </div>
+        <div
+          class="burger"
+          id="burger"
+          aria-label="Menu"
+          aria-expanded="false"
+          role="button"
+          tabindex="0"
+        >
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </nav>
+    </header>
+    <!-- Contenu principal -->
+    <main>
+      <h1>Introduction à HTML</h1>
+      <p>
+        L'HTML a été créé par Tim Berners-Lee, un ingénieur britannique, en
+        1991. Il a développé cette technologie pour permettre aux chercheurs du
+        monde entier de partager facilement des documents et des informations
+        via Internet.
+      </p>
+      <p>
+        Tim Berners-Lee a conçu l'HTML dans le but de structurer et de présenter
+        des informations sur le web. Il voulait créer un langage qui soit simple
+        à utiliser, permettant aux utilisateurs de créer des pages web sans
+        avoir besoin de connaissances techniques approfondies. L'objectif
+        principal était de faciliter ainsi la navigation, la mise en page, et le
+        partage d'informations.
+      </p>
+      <p>
+        HTML (HyperText Markup Language) est le langage utilisé pour créer des
+        pages web. Il permet de structurer du contenu en utilisant des balises
+        et d'ajouter des attributs pour enrichir ces éléments.
+      </p>
+      <!-- section explication balise et attribut  -->
+      <section>
+        <h2>Les balises HTML</h2>
+        <p>
+          Les balises HTML sont des éléments qui définissent la structure et le
+          contenu d'une page web. Voici quelques-unes des balises les plus
+          courantes :
+        </p>
+        <ul>
+          <li>&lt;h1&gt; à &lt;h6&gt; : balises de titre</li>
+          <li>&lt;p&gt; : balise de paragraphe</li>
+          <li>&lt;a&gt; : balise de lien</li>
+          <li>&lt;img&gt; : balise d'image</li>
+          <li>&lt;div&gt; : balise de division</li>
+        </ul>
+        <h2>Attributs HTML</h2>
+        <p>
+          Les attributs HTML sont des informations supplémentaires que l'on peut
+          ajouter aux balises pour en modifier le comportement ou l'apparence.
+          Voici quelques attributs courants :
+        </p>
+        <ul>
+          <li>class : permet de définir une classe CSS pour un élément</li>
+          <li>id : permet de définir un identifiant unique pour un élément</li>
+          <li>
+            src : spécifie la source d'une image ou d'un fichier multimédia
+          </li>
+          <li>href : spécifie l'URL d'un lien</li>
+        </ul>
+        <h2>Exemple de code HTML</h2>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Exemple de page HTML&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Bienvenue sur ma page web&lt;/h1&gt;
+    &lt;p&gt;Ceci est un paragraphe d'exemple.&lt;/p&gt;
+    &lt;a href="https://www.example.com"&gt;Visitez mon site&lt;/a&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      </section>
+      <section>
+        <h2>Ressources supplémentaires</h2>
+        <ul>
+          <li>
+            <a href="https://developer.mozilla.org/fr/docs/Web/HTML"
+              >Documentation MDN sur HTML</a
+            >
+          </li>
+          <li>
+            <a href="https://www.w3schools.com/html/"
+              >Tutoriel W3Schools HTML</a
+            >
+          </li>
+          <li>
+            <a href="https://html.com/">HTML.com - Tutoriels et ressources</a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ===================== FORMULAIRE D'EXEMPLE (étape 1) ===================== -->
+      <section>
+        <h2>Exemple : un formulaire HTML</h2>
+        <p>
+          Voici un formulaire simple avec un champ nom, un champ email, une zone
+          de commentaires et un bouton d'envoi. Le formulaire de contact
+          présent dans le pied de page de chaque page du site fonctionne de la
+          même manière.
+        </p>
+        <!--
+          <form> : balise qui délimite le formulaire. Tous les champs qu'elle contient sont envoyés ensemble quand on clique sur le bouton d'envoi.
+          class="form-exemple" : classe CSS utilisée pour la mise en forme (voir Global.css).
+          action="en_construction.html" : adresse (URL) qui reçoit les données à l'envoi. Ici une page en construction, car aucun script serveur (msg.php par exemple) n'existe encore.
+          method="get" : méthode HTTP d'envoi. "get" place les données dans l'URL, "post" les place dans le corps de la requête (à préférer pour des données personnelles, avec un script serveur).
+        -->
+        <form class="form-exemple" action="en_construction.html" method="get">
+          <div class="champ">
+            <!-- <label> : texte qui décrit le champ. for="nom" doit être identique à l'id du champ : cliquer sur le libellé active le champ. -->
+            <label for="nom">Nom</label>
+            <!--
+              Champ pour saisir le nom de l'utilisateur.
+              <input> : champ de saisie (balise orpheline, sans balise fermante).
+              type="text" : champ de texte sur une seule ligne.
+              id="nom" : identifiant unique du champ, relié au label par for.
+              name="nom" : nom du champ envoyé au serveur, sous la forme nom=valeur.
+              required : champ obligatoire, l'envoi est bloqué tant qu'il est vide.
+              autocomplete="name" : le navigateur peut proposer le nom enregistré.
+              placeholder="Votre nom" : texte d'aide grisé qui disparaît à la saisie.
+            -->
+            <input type="text" id="nom" name="nom" required autocomplete="name" placeholder="Votre nom" />
+          </div>
+          <div class="champ">
+            <label for="email">Email</label>
+            <!--
+              Champ pour saisir l'adresse email de l'utilisateur.
+              type="email" : le navigateur vérifie que la saisie ressemble à une adresse email (texte@domaine) et affiche un clavier adapté sur mobile.
+              id, name, required, autocomplete, placeholder : même rôle que pour le champ nom.
+            -->
+            <input type="email" id="email" name="email" required autocomplete="email" placeholder="vous@exemple.fr" />
+          </div>
+          <div class="champ">
+            <label for="commentaires">Commentaires</label>
+            <!--
+              Zone pour saisir les commentaires de l'utilisateur.
+              <textarea> : zone de texte sur plusieurs lignes (balise avec fermeture).
+              rows="5" : nombre de lignes visibles dans la zone.
+              name="commentaires" : nom du champ envoyé au serveur.
+              required : champ obligatoire.
+            -->
+            <textarea id="commentaires" name="commentaires" rows="5" required placeholder="Vos commentaires"></textarea>
+          </div>
+          <!--
+            Bouton de soumission du formulaire.
+            <button> : bouton cliquable.
+            type="submit" : un clic envoie le formulaire à l'adresse indiquée par action, avec la méthode indiquée par method.
+          -->
+          <button type="submit">Envoyer</button>
+        </form>
+        <h3>Rôle des attributs importants d'un formulaire</h3>
+        <dl>
+          <dt>method</dt>
+          <dd>
+            Indique comment les données sont envoyées : <code>get</code> (dans
+            l'URL, visibles et limitées en taille) ou <code>post</code> (dans le
+            corps de la requête, à préférer pour des données personnelles).
+          </dd>
+          <dt>action</dt>
+          <dd>
+            Indique l'adresse (URL) de la page ou du script qui reçoit et traite
+            les données à l'envoi du formulaire. Sans action, les données sont
+            envoyées à la page courante.
+          </dd>
+          <dt>required</dt>
+          <dd>
+            Rend un champ obligatoire : le navigateur bloque l'envoi et affiche
+            un message tant que le champ est vide (ou invalide pour un email).
+          </dd>
+          <dt>name</dt>
+          <dd>
+            Donne un nom au champ. C'est ce nom, associé à la valeur saisie
+            (<code>nom=Alice</code>), qui est transmis au serveur : un champ sans
+            <code>name</code> n'est pas envoyé.
+          </dd>
+        </dl>
+      </section>
+    </main>
+    <!-- footer -->
+    <footer>
+      <!-- Formulaire de contact : présent dans le footer de chaque page -->
+      <section class="contact" aria-labelledby="contact-titre">
+        <h2 id="contact-titre">Contactez-nous</h2>
+        <!--
+          <form> : délimite le formulaire, tous les champs qu'il contient sont envoyés ensemble.
+          action : adresse qui reçoit les données à l'envoi. Ici une page en construction, en attendant un vrai script serveur (msg.php par exemple).
+          method : méthode HTTP d'envoi ("get" : données visibles dans l'URL, "post" : données dans le corps de la requête).
+        -->
+        <form action="en_construction.html" method="get">
+          <div class="champ">
+            <!-- <label for="contact-nom"> : libellé du champ dont l'id vaut "contact-nom" (un clic sur le texte active le champ). -->
+            <label for="contact-nom">Nom</label>
+            <!--
+              Champ pour saisir le nom du visiteur.
+              type="text" : texte sur une ligne. id : identifiant unique (lien avec le label).
+              name : nom sous lequel la valeur est envoyée. required : champ obligatoire.
+              autocomplete : aide du navigateur. placeholder : texte d'aide grisé.
+            -->
+            <input type="text" id="contact-nom" name="nom" required autocomplete="name" placeholder="Votre nom" />
+          </div>
+          <div class="champ">
+            <label for="contact-email">Email</label>
+            <!-- type="email" : le navigateur vérifie que la saisie ressemble à une adresse email (texte@domaine). -->
+            <input type="email" id="contact-email" name="email" required autocomplete="email" placeholder="vous@exemple.fr" />
+          </div>
+          <div class="champ champ-large">
+            <label for="contact-message">Message</label>
+            <!-- <textarea> : zone de texte sur plusieurs lignes. rows : nombre de lignes visibles. -->
+            <textarea id="contact-message" name="message" rows="4" required placeholder="Votre message"></textarea>
+          </div>
+          <!-- <button type="submit"> : bouton qui envoie le formulaire. -->
+          <button type="submit">Envoyer</button>
+        </form>
+      </section>
+      <!-- définition des droits d'auteur -->
+      <p>&copy; 2026 COURS SIO WEB LDV Melun. Tous droits réservés.</p>
+    </footer>
+    <!-- script -->
+    <script src="../js/main.js"></script>
+  </body>
+</html>
