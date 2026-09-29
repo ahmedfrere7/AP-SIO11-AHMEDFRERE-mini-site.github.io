@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/Global.css" />
+    <link rel="stylesheet" href="../css/linux_command_line.css" />
+    <title>COURS SIO WEB | Ligne de commande Linux</title>
+  </head>
+  <body>
+    <!-- En-tête de la page -->
+    <header>
+      <nav aria-label="Navigation principale">
+        <div class="logo">Logo</div>
+        <div class="menu" id="menu">
+          <ul>
+            <li><a href="../index.html">Accueil</a></li>
+            <li><a href="html.html">HTML</a></li>
+            <li><a href="css.html">CSS</a></li>
+            <li><a href="en_construction.html">JavaScript</a></li>
+            <li><a href="en_construction.html">PHP</a></li>
+            <li><a href="en_construction.html">Kotlin</a></li>
+            <li><a href="en_construction.html">Python</a></li>
+            <li><a href="en_construction.html">SQL</a></li>
+            <li><a href="en_construction.html">Angular</a></li>
+            <li><a href="en_construction.html">Git</a></li>
+            <li><a href="en_construction.html">GitHub</a></li>
+            <li><a href="en_construction.html">Linux</a></li>
+            <li><a href="linux_command_line.html" aria-current="page">Ligne de commande Linux</a></li>
+          </ul>
+        </div>
+        <div
+          class="burger"
+          id="burger"
+          aria-label="Menu"
+          aria-expanded="false"
+          role="button"
+          tabindex="0"
+        >
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </nav>
+    </header>
+    <!-- Contenu principal -->
+    <main>
+      <div class="memento">
+        <h1>Ligne de commande Linux : mémento</h1>
+        <p>
+          Ce mémento regroupe les commandes Linux utiles en SISR, classées par
+          thème. Pour chaque commande : son rôle et un ou plusieurs exemples
+          d'utilisation. Pour tout savoir sur une commande, tapez
+          <code>man commande</code> dans le terminal.
+        </p>
+        <!-- Sommaire : liens d'ancre vers chaque tableau -->
+        <div class="sommaire">
+          <p>Aller directement à :</p>
+          <ul>
+            <li><a href="#navigation-fichiers">Navigation et gestion des fichiers</a></li>
+            <li><a href="#lecture-recherche">Lecture, recherche et édition de fichiers</a></li>
+            <li><a href="#utilisateurs-droits">Utilisateurs, groupes et droits</a></li>
+            <li><a href="#systeme-processus">Système, processus et aide</a></li>
+            <li><a href="#paquets">Gestion des paquets (Debian / Ubuntu)</a></li>
+            <li><a href="#reseau">Réseau</a></li>
+            <li><a href="#archives">Archives et compression</a></li>
+          </ul>
+        </div>
+        <!--
+          Un tableau par thème. Structure de chaque tableau :
+          <table> : le tableau ; <caption> : son titre (masqué visuellement, lu par les lecteurs d'écran) ;
+          <thead> : ligne d'en-tête ; <tbody> : lignes de données ;
+          <tr> : une ligne ; <th scope="col"> : en-tête de colonne ; <th scope="row"> : en-tête de ligne (la commande) ;
+          <td> : cellule de données ; <code> : texte de code (police à chasse fixe).
+        -->
+        <section id="navigation-fichiers">
+          <h2>Navigation et gestion des fichiers</h2>
+          <div class="table-wrap">
+            <table>
+              <caption class="sr-only">
+                Navigation et gestion des fichiers : commandes, descriptions et exemples
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Commande</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Exemple d'utilisation</th>
+                </tr>
+              </thead>
+              <tbody>
+            <tr>
+              <th scope="row"><code>pwd</code></th>
+              <td>Affiche le répertoire courant</td>
+              <td>
+                <code>pwd</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>ls</code></th>
+              <td>Liste les fichiers et dossiers</td>
+              <td>
+                <code>ls -l</code><br />
+                <code>ls -la</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>cd</code></th>
+              <td>Change de répertoire</td>
+              <td>
+                <code>cd /home/user</code><br />
+                <code>cd ..</code><br />
+                <code>cd ~</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>mkdir</code></th>
+              <td>Crée un dossier</td>
+              <td>
+                <code>mkdir projet</code><br />
+                <code>mkdir -p site/css/img</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>rmdir</code></th>
+              <td>Supprime un dossier vide</td>
+              <td>
+                <code>rmdir dossier_vide</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>touch</code></th>
+              <td>Crée un fichier vide (ou met à jour sa date)</td>
+              <td>
+                <code>touch index.html</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>cp</code></th>
+              <td>Copie un fichier ou un dossier</td>
+              <td>
+                <code>cp a.txt b.txt</code><br />
+                <code>cp -r site site_sauvegarde</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>mv</code></th>
+              <td>Déplace ou renomme un fichier ou un dossier</td>
+              <td>
+                <code>mv ancien.txt nouveau.txt</code><br />
+                <code>mv fichier.txt /tmp</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>rm</code></th>
+              <td>Supprime des fichiers ou des dossiers (définitif, pas de corbeille)</td>
+              <td>
+                <code>rm fichier.txt</code><br />
+                <code>rm -r dossier</code>
+              </td>
+            </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section id="lecture-recherche">
+          <h2>Lecture, recherche et édition de fichiers</h2>
+          <div class="table-wrap">
+            <table>
+              <caption class="sr-only">
+                Lecture, recherche et édition de fichiers : commandes, descriptions et exemples
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Commande</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Exemple d'utilisation</th>
+                </tr>
+              </thead>
+              <tbody>
+            <tr>
+              <th scope="row"><code>cat</code></th>
+              <td>Affiche le contenu d'un fichier</td>
+              <td>
+                <code>cat /etc/hostname</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>less</code></th>
+              <td>Affiche un fichier page par page (q pour quitter)</td>
+              <td>
+                <code>less /var/log/syslog</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>head</code></th>
+              <td>Affiche les premières lignes d'un fichier</td>
+              <td>
+                <code>head -n 5 fichier.txt</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>tail</code></th>
+              <td>Affiche les dernières lignes d'un fichier (-f : suit les ajouts)</td>
+              <td>
+                <code>tail -n 20 fichier.log</code><br />
+                <code>tail -f /var/log/syslog</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>nano</code></th>
+              <td>Édite un fichier dans le terminal</td>
+              <td>
+                <code>nano fichier.txt</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>echo</code></th>
+              <td>Affiche un texte ou l'écrit dans un fichier avec &gt;</td>
+              <td>
+                <code>echo "Bonjour"</code><br />
+                <code>echo "texte" &gt; fichier.txt</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>grep</code></th>
+              <td>Recherche un motif dans un fichier</td>
+              <td>
+                <code>grep -i "erreur" fichier.log</code><br />
+                <code>grep -r "TODO" .</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>find</code></th>
+              <td>Recherche des fichiers dans une arborescence</td>
+              <td>
+                <code>find /home -name "*.html"</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>wc</code></th>
+              <td>Compte les lignes, mots et caractères</td>
+              <td>
+                <code>wc -l fichier.txt</code>
+              </td>
+            </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section id="utilisateurs-droits">
+          <h2>Utilisateurs, groupes et droits</h2>
+          <div class="table-wrap">
+            <table>
+              <caption class="sr-only">
+                Utilisateurs, groupes et droits : commandes, descriptions et exemples
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Commande</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Exemple d'utilisation</th>
+                </tr>
+              </thead>
+              <tbody>
+            <tr>
+              <th scope="row"><code>whoami</code></th>
+              <td>Affiche le nom de l'utilisateur courant</td>
+              <td>
+                <code>whoami</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>id</code></th>
+              <td>Affiche l'identifiant et les groupes de l'utilisateur</td>
+              <td>
+                <code>id</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>sudo</code></th>
+              <td>Exécute une commande avec les droits administrateur</td>
+              <td>
+                <code>sudo apt update</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>su</code></th>
+              <td>Change d'utilisateur</td>
+              <td>
+                <code>su - alice</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>useradd</code></th>
+              <td>Crée un utilisateur (-m : crée son dossier personnel)</td>
+              <td>
+                <code>sudo useradd -m alice</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>passwd</code></th>
+              <td>Définit ou change un mot de passe</td>
+              <td>
+                <code>sudo passwd alice</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>usermod</code></th>
+              <td>Modifie un utilisateur (ex. l'ajouter à un groupe)</td>
+              <td>
+                <code>sudo usermod -aG sudo alice</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>userdel</code></th>
+              <td>Supprime un utilisateur (-r : supprime aussi son dossier)</td>
+              <td>
+                <code>sudo userdel -r alice</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>groupadd</code></th>
+              <td>Crée un groupe</td>
+              <td>
+                <code>sudo groupadd sio</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>chmod</code></th>
+              <td>Modifie les droits d'un fichier (lecture, écriture, exécution)</td>
+              <td>
+                <code>chmod 755 script.sh</code><br />
+                <code>chmod u+x script.sh</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>chown</code></th>
+              <td>Change le propriétaire et le groupe d'un fichier</td>
+              <td>
+                <code>sudo chown alice:sio fichier.txt</code>
+              </td>
+            </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section id="systeme-processus">
+          <h2>Système, processus et aide</h2>
+          <div class="table-wrap">
+            <table>
+              <caption class="sr-only">
+                Système, processus et aide : commandes, descriptions et exemples
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Commande</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Exemple d'utilisation</th>
+                </tr>
+              </thead>
+              <tbody>
+            <tr>
+              <th scope="row"><code>man</code></th>
+              <td>Affiche le manuel d'une commande</td>
+              <td>
+                <code>man ls</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>history</code></th>
+              <td>Affiche l'historique des commandes saisies</td>
+              <td>
+                <code>history</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>clear</code></th>
+              <td>Efface l'écran du terminal</td>
+              <td>
+                <code>clear</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>uname</code></th>
+              <td>Affiche des informations sur le système et le noyau</td>
+              <td>
+                <code>uname -a</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>hostname</code></th>
+              <td>Affiche ou modifie le nom de la machine</td>
+              <td>
+                <code>hostname</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>date</code></th>
+              <td>Affiche la date et l'heure</td>
+              <td>
+                <code>date</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>uptime</code></th>
+              <td>Affiche depuis quand la machine est allumée</td>
+              <td>
+                <code>uptime</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>df</code></th>
+              <td>Affiche l'espace disque des partitions</td>
+              <td>
+                <code>df -h</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>du</code></th>
+              <td>Affiche la taille d'un dossier</td>
+              <td>
+                <code>du -sh /var/log</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>free</code></th>
+              <td>Affiche l'utilisation de la mémoire</td>
+              <td>
+                <code>free -h</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>ps</code></th>
+              <td>Liste les processus en cours</td>
+              <td>
+                <code>ps aux</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>top</code></th>
+              <td>Affiche les processus en temps réel (q pour quitter)</td>
+              <td>
+                <code>top</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>kill</code></th>
+              <td>Arrête un processus à partir de son PID</td>
+              <td>
+                <code>kill 1234</code><br />
+                <code>kill -9 1234</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>systemctl</code></th>
+              <td>Gère les services (démarrer, arrêter, état)</td>
+              <td>
+                <code>systemctl status ssh</code><br />
+                <code>sudo systemctl restart ssh</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>journalctl</code></th>
+              <td>Affiche les journaux du système</td>
+              <td>
+                <code>journalctl -xe</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>shutdown</code></th>
+              <td>Éteint ou redémarre la machine</td>
+              <td>
+                <code>sudo shutdown -h now</code><br />
+                <code>sudo reboot</code>
+              </td>
+            </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section id="paquets">
+          <h2>Gestion des paquets (Debian / Ubuntu)</h2>
+          <div class="table-wrap">
+            <table>
+              <caption class="sr-only">
+                Gestion des paquets (Debian / Ubuntu) : commandes, descriptions et exemples
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Commande</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Exemple d'utilisation</th>
+                </tr>
+              </thead>
+              <tbody>
+            <tr>
+              <th scope="row"><code>apt update</code></th>
+              <td>Met à jour la liste des paquets disponibles</td>
+              <td>
+                <code>sudo apt update</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>apt upgrade</code></th>
+              <td>Met à jour les paquets installés</td>
+              <td>
+                <code>sudo apt upgrade</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>apt install</code></th>
+              <td>Installe un paquet</td>
+              <td>
+                <code>sudo apt install apache2</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>apt remove</code></th>
+              <td>Désinstalle un paquet</td>
+              <td>
+                <code>sudo apt remove apache2</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>apt search</code></th>
+              <td>Recherche un paquet</td>
+              <td>
+                <code>apt search nginx</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>dpkg -l</code></th>
+              <td>Liste les paquets installés</td>
+              <td>
+                <code>dpkg -l | grep apache</code>
+              </td>
+            </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section id="reseau">
+          <h2>Réseau</h2>
+          <div class="table-wrap">
+            <table>
+              <caption class="sr-only">
+                Réseau : commandes, descriptions et exemples
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Commande</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Exemple d'utilisation</th>
+                </tr>
+              </thead>
+              <tbody>
+            <tr>
+              <th scope="row"><code>ip a</code></th>
+              <td>Affiche les interfaces réseau et leurs adresses IP</td>
+              <td>
+                <code>ip a</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>ping</code></th>
+              <td>Teste la communication avec une machine</td>
+              <td>
+                <code>ping -c 4 8.8.8.8</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>ss</code></th>
+              <td>Affiche les ports en écoute et les connexions</td>
+              <td>
+                <code>ss -tuln</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>traceroute</code></th>
+              <td>Affiche le chemin suivi par les paquets jusqu'à une machine</td>
+              <td>
+                <code>traceroute example.com</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>nslookup</code></th>
+              <td>Interroge le DNS pour obtenir l'adresse IP d'un nom</td>
+              <td>
+                <code>nslookup example.com</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>curl</code></th>
+              <td>Envoie une requête HTTP et affiche la réponse</td>
+              <td>
+                <code>curl -I https://example.com</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>wget</code></th>
+              <td>Télécharge un fichier depuis le web</td>
+              <td>
+                <code>wget https://example.com/fichier.zip</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>ssh</code></th>
+              <td>Se connecte à une machine distante en ligne de commande</td>
+              <td>
+                <code>ssh alice@192.168.1.10</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>scp</code></th>
+              <td>Copie un fichier vers une machine distante via SSH</td>
+              <td>
+                <code>scp fichier.txt alice@192.168.1.10:/tmp</code>
+              </td>
+            </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section id="archives">
+          <h2>Archives et compression</h2>
+          <div class="table-wrap">
+            <table>
+              <caption class="sr-only">
+                Archives et compression : commandes, descriptions et exemples
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Commande</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Exemple d'utilisation</th>
+                </tr>
+              </thead>
+              <tbody>
+            <tr>
+              <th scope="row"><code>tar</code></th>
+              <td>Crée (-c) ou extrait (-x) une archive .tar.gz</td>
+              <td>
+                <code>tar -czvf archive.tar.gz dossier</code><br />
+                <code>tar -xzvf archive.tar.gz</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>zip</code></th>
+              <td>Crée une archive .zip</td>
+              <td>
+                <code>zip -r site.zip site</code>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>unzip</code></th>
+              <td>Extrait une archive .zip</td>
+              <td>
+                <code>unzip site.zip</code>
+              </td>
+            </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <p class="attention">
+          Attention : <code>rm</code> supprime définitivement et
+          <code>sudo</code> donne les droits administrateur. Vérifiez toujours
+          une commande avant de l'exécuter.
+        </p>
+      </div>
+    </main>
+    <footer>
+      <!-- Formulaire de contact : présent dans le footer de chaque page -->
+      <section class="contact" aria-labelledby="contact-titre">
+        <h2 id="contact-titre">Contactez-nous</h2>
+        <!--
+          <form> : délimite le formulaire, tous les champs qu'il contient sont envoyés ensemble.
+          action : adresse qui reçoit les données à l'envoi. Ici une page en construction, en attendant un vrai script serveur (msg.php par exemple).
+          method : méthode HTTP d'envoi ("get" : données visibles dans l'URL, "post" : données dans le corps de la requête).
+        -->
+        <form action="en_construction.html" method="get">
+          <div class="champ">
+            <!-- <label for="contact-nom"> : libellé du champ dont l'id vaut "contact-nom" (un clic sur le texte active le champ). -->
+            <label for="contact-nom">Nom</label>
+            <!--
+              Champ pour saisir le nom du visiteur.
+              type="text" : texte sur une ligne. id : identifiant unique (lien avec le label).
+              name : nom sous lequel la valeur est envoyée. required : champ obligatoire.
+              autocomplete : aide du navigateur. placeholder : texte d'aide grisé.
+            -->
+            <input type="text" id="contact-nom" name="nom" required autocomplete="name" placeholder="Votre nom" />
+          </div>
+          <div class="champ">
+            <label for="contact-email">Email</label>
+            <!-- type="email" : le navigateur vérifie que la saisie ressemble à une adresse email (texte@domaine). -->
+            <input type="email" id="contact-email" name="email" required autocomplete="email" placeholder="vous@exemple.fr" />
+          </div>
+          <div class="champ champ-large">
+            <label for="contact-message">Message</label>
+            <!-- <textarea> : zone de texte sur plusieurs lignes. rows : nombre de lignes visibles. -->
+            <textarea id="contact-message" name="message" rows="4" required placeholder="Votre message"></textarea>
+          </div>
+          <!-- <button type="submit"> : bouton qui envoie le formulaire. -->
+          <button type="submit">Envoyer</button>
+        </form>
+      </section>
+      <!-- définition des droits d'auteur -->
+      <p>&copy; 2026 COURS SIO WEB LDV Melun. Tous droits réservés.</p>
+    </footer>
+    <!-- script -->
+    <script src="../js/main.js"></script>
+  </body>
+</html>
